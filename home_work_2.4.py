@@ -1,33 +1,8 @@
-# 3. Задайте последовательность чисел. Напишите программу, 
-# которая выведет список неповторяющихся элементов исходной последовательности.
-# 
-# Ввод: [1, 1, 2, 3, 4, 4, 4]
-# Вывод: [2, 3]
+# 4. Задана натуральная степень k. 
+# Сформировать случайным образом список коэффициентов (значения от 0 до 100) многочлена 
+# и записать в файл многочлен степени k.
 
+# Пример:
 
-def find_repeating_elements(list_number: list) -> dict:
-    dict_elements = {}
-    for i in range(len(list_number)):
-        count = 1
-        for k in range(len(list_number)):
-            if list_number[i] == list_number[k] and i is not k:
-                count += 1
-        dict_elements[i] = count
-    return dict_elements
-
-def deleting_elements(my_list: list, my_dict: dict) -> list:
-    for i in range(len(my_list) - 1,-1,-1):
-        ...
-        if my_dict[i] > 1:
-            my_list.pop(i)
-    #i = len(my_list) - 1
-    #while i >=0:
-    #    if my_dict[i] > 1:
-    #        my_list.pop(i)
-    #    i -= 1
-    return my_list
-
-
-list_number = [1, 1, 2, 3, 4, 4, 4]
-
-print('Список неповторяющихся элементов:',deleting_elements(list_number, find_repeating_elements(list_number)))
+# k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
+# k=4 => 8*(x**4) + 9*(x**3) + 1*(x**2) + 5*x + 4 = 0 или 8*(x**4) + 5*x + 4 = 0 и т.д.
