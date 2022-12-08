@@ -16,15 +16,15 @@ def find_repeating_elements(list_number: list) -> dict:
     return dict_elements
 
 def deleting_elements(my_list: list, my_dict: dict) -> list:
-    #for i in range(len(my_list) - 1,0,-1):
-    #    ...
-    #    if my_dict[i] > 1:
-    #        my_list.pop(i)
-    i = len(my_list) - 1
-    while i >=0:
+    for i in range(len(my_list) - 1,-1,-1):
+        ...
         if my_dict[i] > 1:
             my_list.pop(i)
-        i -= 1
+    #i = len(my_list) - 1
+    #while i >=0:
+    #    if my_dict[i] > 1:
+    #        my_list.pop(i)
+    #    i -= 1
     return my_list
 
 
