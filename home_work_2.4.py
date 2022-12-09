@@ -2,21 +2,7 @@
 # Задача - сформировать файл, содержащий сумму многочленов (складываются числа, у которых "х" в одинаковых степенях). 
 # Пример того, что будет в итоговом файле: 8*(x**4) + 9*(x**3) + 1*(x**2) + 5*x + 4 = 0
 
-# 'r' - чтение
-# 'w' - перезапись (если файла нет, он создается)
-# 'a' - дозапись
-# 'r+' - чтение + запись
-
 from pathlib import Path
-
-# запись в файл:
-#file_path = Path('data', 'task_1.txt')
-#with open(file_path,'w') as data:
-#    data.write('1 8 6 5 0 7 3 5 2 6 5 3 0 1')
-
-#def first_digit(word: str) -> int:
-#    for i in range(len(word)):
-#        return 
 
 def recive_text_file (name_file: str) -> str:
     file_path = Path(name_file, name_file + '.txt')
@@ -51,6 +37,10 @@ def polynomial_formation(sum_coef_list: list) -> str:
             list_polynomial += str(sum_coef_list[len(sum_coef_list) - 1 - i]) + ' = 0'
     return list_polynomial
 
+def write_in_file(polynomial_string: str, name_file: str):
+    file_path = Path(name_file, name_file + '.txt')
+    with open(file_path,'w', encoding="utf-8") as polynomial_write:
+        polynomial_write.write(str(polynomial_string))
 
 # Получаем сырые списки строк многочленов
 polynomial_str_1 = recive_text_file('polynomial_1')
@@ -60,15 +50,10 @@ polynomial_str_2 = recive_text_file('polynomial_2')
 list_coef_1 = recive_coef(polynomial_str_1)
 list_coef_2 = recive_coef(polynomial_str_2)
 
-# Перемножаем кооэфициенты многочленов и выводим
-print(polynomial_formation(sum_coef(list_coef_1, list_coef_2)))
+# Перемножаем кооэфициенты многочленов и записываем в файл
+write_in_file(polynomial_formation(sum_coef(list_coef_1, list_coef_2)),'polynomial_resault')
 
 
 
 
-#for i in range(len(list_number)):
-#    list_number[i] = int(list_number[i])
-
-#with open(file_path,'a') as minmax:
-#    minmax.write(f'\n{min(list_number)} {max(list_number)}')
 
